@@ -1,0 +1,27 @@
+.navtab {
+  list-style-type: none;
+  display: flex;
+  padding-bottom: 30px;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.navtab-item {
+  border-radius: 10px;
+  background: #303030;
+  margin: 0 10px 10px;
+  min-height: 36px;
+  min-width: 96px;
+  padding: 0;
+  font-weight: 500;
+  font-size: 12px;
+  line-height: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.navtab-link {
+  color: white;
+  text-decoration: none;
+}

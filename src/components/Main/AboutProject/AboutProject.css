@@ -1,0 +1,68 @@
+.about-project {
+  display: flex;
+  flex-direction: column;
+  padding: 110px 70px 110px;
+}
+
+.about-project__about-block-title {
+  font-weight: normal;
+  font-size: 20px;
+  line-height: 24px;
+  letter-spacing: -0.04em;
+  margin: 0 0 26px;
+}
+
+
+.about-project__about-block {
+  display: grid;
+  grid-template-columns: auto auto;
+  gap: 40px;
+  margin: 70px 0 110px;
+}
+
+.about-project__block-progress-top {
+  min-height: 36px;
+  display: flex;
+}
+
+.about-project__block-progress-bottom {
+  display: flex;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 17px;
+  color: #8B8B8B;
+}
+
+.about-project__block-progress-one {
+  background-color: #3DDC84;
+  min-width: 20%;
+  color: black;
+  font-weight: normal;
+  font-size: 14px;
+  line-height: 17px;
+  text-align: center;
+  padding: 9px 0 0;
+}
+
+.about-project__block-progress-two {
+  font-weight: normal;
+  font-size: 14px;
+  line-height: 17px;
+  text-align: center;
+  background-color: #303030;
+  min-width: 80%;
+  padding: 9px 0 0;
+}
+
+.about-project__block-progress-text-right {
+  text-align: center;
+  min-width: 20%;
+  margin: 14px 0 0;
+}
+
+.about-project__block-progress-text-left {
+  text-align: center;
+  min-width: 80%;
+  margin: 14px 0 0;
+}
