@@ -3,7 +3,8 @@ import { Link } from 'react-router-dom';
 function Login() {
   return (
     <section className="login">
-      <div className="logo"></div>
+      <div className="profile__block">
+     <Link to="/" className='login__link'><div className="logo"></div></Link>
       <h3 className="profile-title">Рады видеть!</h3>
       <form action="" className="profile__form">
         <p className="profile__form-description-input">E-mail</p>
@@ -14,6 +15,7 @@ function Login() {
         
       </form>
       <p className="profile__reg">Ещё не зарегистрированы? <Link to="/signup" className="profile__reg-link">Регистрация</Link></p>
+      </div>
     </section>
   )
 }

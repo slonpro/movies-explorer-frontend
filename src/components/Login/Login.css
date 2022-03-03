@@ -1,5 +1,15 @@
 .login {
   max-width: 396px;
-  margin: 0 auto;
-  padding: 70px 0;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  margin: auto;
+}
+
+@media screen and (max-width: 767px) {
+  .login {
+    max-width: 260px;
+  }  
+
+  
 }

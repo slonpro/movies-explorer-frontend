@@ -5,23 +5,39 @@ import { Link, useLocation } from 'react-router-dom';
 
 function Header() {
   const location = useLocation();
-
-
-  if (location.pathname === "/signin") {
-    return (
-      <></>
-    )
-  }
-  if (location.pathname === "/signup") {
-    return (
-      <></>
-    )
-  } else {
+  if (location.pathname === "/movies") {
     return (
       <header className="header">
         <Link to="/"><div className="logo"></div></Link>
         <Navigation />
       </header>)
+  }
+  if (location.pathname === "/saved-movies") {
+    return (
+      <header className="header">
+        <Link to="/"><div className="logo"></div></Link>
+        <Navigation />
+      </header>)
+
+  } if (location.pathname === "/") {
+    return (
+      <header className="header">
+        <Link to="/"><div className="logo"></div></Link>
+        <Navigation />
+      </header>)
+
+  } 
+  if (location.pathname === "/profile") {
+    return (
+      <header className="header">
+        <Link to="/"><div className="logo"></div></Link>
+        <Navigation />
+      </header>)
+
+  } else {
+    return (
+      <>
+      </>)
   }
 }
 

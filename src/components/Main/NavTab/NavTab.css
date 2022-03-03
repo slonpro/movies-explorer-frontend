@@ -25,3 +25,17 @@
   color: white;
   text-decoration: none;
 }
+
+@media screen and (max-width: 767px) {
+  .navtab {
+    padding-bottom: 17px;
+  }
+
+  .navtab-item {
+    font-size: 10px;
+    margin: 0 3px 10px;
+    min-width: 82px;
+    min-height: 26px;
+    border-radius: 6px;
+  }
+}

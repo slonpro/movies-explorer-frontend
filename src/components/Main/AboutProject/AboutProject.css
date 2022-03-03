@@ -66,3 +66,60 @@
   min-width: 80%;
   margin: 14px 0 0;
 }
+
+@media screen and (max-width: 1279px) {
+  .about-project {
+    padding: 90px 50px 90px;
+  }
+
+  .about-project__about-block {
+    display: grid;
+    grid-template-columns: auto auto;
+    gap: 40px;
+    margin: 70px 0 93px;
+  }
+}
+
+@media screen and (max-width: 767px) {
+  .about-project {
+    padding: 70px 18px 90px;
+  }
+
+  .about-project__about-block {
+    display: grid;
+    grid-template-columns: auto;
+    gap: 56px;
+    margin: 60px 0 60px;
+  }
+
+  .about-project__block-progress-text-right {
+    text-align: center;
+    min-width: 35%;
+    margin: 10px 0 0;
+    font-size: 11px;
+line-height: 13px;
+  }
+  
+  .about-project__block-progress-text-left {
+    text-align: center;
+    min-width: 65%;
+    margin: 10px 0 0;
+    font-size: 11px;
+line-height: 13px;
+  }
+
+  .about-project__block-progress-one {
+    min-width: 40%;
+    font-size: 11px;
+    line-height: 13px;
+    text-align: center;
+    padding: 11px 0 0;
+  }
+  
+  .about-project__block-progress-two {
+    font-size: 11px;
+    line-height: 13px;
+    min-width: 60%;
+    padding: 11px 0 0;
+  }
+}

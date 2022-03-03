@@ -35,6 +35,7 @@
   line-height: 58px;
   text-align: center;
   letter-spacing: -0.04em;
+  margin: 0;
 }
 
 .p-text {
@@ -92,11 +93,51 @@
   font-size: 14px;
   line-height: 17px;
   text-align: center;
-
+  margin: 14px 0 0;
   color: #8B8B8B;
 }
 
 .profile__reg-link {
   text-decoration: none;
   color: #4285F4;
+}
+
+@media screen and (max-width:767px) {
+  .title-block-h2 {
+    font-size: 18px;
+    line-height: 22px;
+  }
+
+  .title {
+    font-size: 30px;
+    line-height: 36px;
+  }
+
+  .profile__block {
+    max-width: 260px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .profile__form-input {
+    min-width: 230px;
+  }
+
+  .profile-title {
+    text-align: center;
+  }
+
+  .logo {
+    text-align: center;
+  }
+
+  .profile__form-button {
+    margin-top: 267px;
+  }
+
+  .profile__reg {
+    font-size: 12px;
+    line-height: 15px;
+  }
 }
