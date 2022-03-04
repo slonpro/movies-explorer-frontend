@@ -75,7 +75,7 @@
 
 }
 
-@media screen and (max-width: 1279px) {
+@media screen and (max-width: 767px) {
   .aboutme {
     padding: 70px 14px 70px;
   }
