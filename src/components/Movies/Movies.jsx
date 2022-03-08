@@ -7,42 +7,42 @@ function Movies() {
       <section className="movies-list">
         <div className="movies-lists">
           <div className="movies-list__item">
-            <div className="movies-list__item-img"></div>
+            <img src={require('../../images/film1.jpg')} alt="описание картинки" className="movies-list__item-img"></img>
             <div className="movies-list__item-block-name-like">
               <p className="movies-list__item-name">33 слова</p>
-              <div className="movies-list__item-like"></div>
+              <button className="movies-list__item-like"></button>
             </div>
             <p className="movies-list__item-time">1ч 47м</p>
           </div>
           <div className="movies-list__item">
-            <div className="movies-list__item-img"></div>
+            <img src={require('../../images/film1.jpg')} alt="описание картинки" className="movies-list__item-img"></img>
             <div className="movies-list__item-block-name-like">
               <p className="movies-list__item-name">33 слова</p>
-              <div className="movies-list__item-like movies-list__item-like_active"></div>
+              <button className="movies-list__item-like"></button>
             </div>
             <p className="movies-list__item-time">1ч 47м</p>
           </div>
           <div className="movies-list__item">
-            <div className="movies-list__item-img"></div>
+            <img src={require('../../images/film1.jpg')} alt="описание картинки" className="movies-list__item-img"></img>
             <div className="movies-list__item-block-name-like">
               <p className="movies-list__item-name">33 слова</p>
-              <div className="movies-list__item-like"></div>
+              <button className="movies-list__item-like"></button>
             </div>
             <p className="movies-list__item-time">1ч 47м</p>
           </div>
           <div className="movies-list__item">
-            <div className="movies-list__item-img"></div>
+            <img src={require('../../images/film1.jpg')} alt="описание картинки" className="movies-list__item-img"></img>
             <div className="movies-list__item-block-name-like">
               <p className="movies-list__item-name">33 слова</p>
-              <div className="movies-list__item-like"></div>
+              <button className="movies-list__item-like movies-list__item-like_active"></button>
             </div>
             <p className="movies-list__item-time">1ч 47м</p>
           </div>
           <div className="movies-list__item">
-            <div className="movies-list__item-img"></div>
+            <img src={require('../../images/film1.jpg')} alt="описание картинки" className="movies-list__item-img"></img>
             <div className="movies-list__item-block-name-like">
               <p className="movies-list__item-name">33 слова</p>
-              <div className="movies-list__item-like"></div>
+              <button className="movies-list__item-like"></button>
             </div>
             <p className="movies-list__item-time">1ч 47м</p>
           </div>

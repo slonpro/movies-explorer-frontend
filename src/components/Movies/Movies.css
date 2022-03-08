@@ -20,7 +20,7 @@
 }
 
 .movies-list__item-img {
-  background: url(../../images/film1.jpg) no-repeat;
+  background: no-repeat;
   width: 100%;
   min-height: 203px;
   border-top-left-radius: 10px;
@@ -35,10 +35,11 @@
 }
 
 .movies-list__item-like {
-  background-image: url(../../images/like.svg);
+  background: url(../../images/like.svg) center no-repeat;
   width: 14px;
   height: 12px;
   background-size: contain;
+  border: none;
 }
 
 .movies-list__item-like_active {

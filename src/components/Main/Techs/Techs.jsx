@@ -12,13 +12,13 @@ function Techs() {
       </div>
       <div className="techs__type">
         <li className="techs__lists">
-          <ul className="techs-item"><a href="https://ru.wikipedia.org/wiki/HTML" className="techs-link">HTML</a></ul>
-          <ul className="techs-item"><a href="https://ru.wikipedia.org/wiki/CSS" className="techs-link">CSS</a></ul>
-          <ul className="techs-item"><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript" className="techs-link">JS</a></ul>
-          <ul className="techs-item"><a href="https://reactjs.org" className="techs-link">React</a></ul>
-          <ul className="techs-item"><a href="https://github.com" className="techs-link">Git</a></ul>
-          <ul className="techs-item"><a href="https://expressjs.com/ru/" className="techs-link">Express.js</a></ul>
-          <ul className="techs-item"><a href="https://www.mongodb.com" className="techs-link">mongoDB</a></ul>
+          <ul className="techs-item"><a target="_blank" rel="noreferrer"  href="https://ru.wikipedia.org/wiki/HTML" className="techs-link">HTML</a></ul>
+          <ul className="techs-item"><a target="_blank" rel="noreferrer"  href="https://ru.wikipedia.org/wiki/CSS" className="techs-link">CSS</a></ul>
+          <ul className="techs-item"><a target="_blank" rel="noreferrer"  href="https://developer.mozilla.org/en-US/docs/Web/JavaScript" className="techs-link">JS</a></ul>
+          <ul className="techs-item"><a target="_blank" rel="noreferrer"  href="https://reactjs.org" className="techs-link">React</a></ul>
+          <ul className="techs-item"><a target="_blank" rel="noreferrer"  href="https://github.com" className="techs-link">Git</a></ul>
+          <ul className="techs-item"><a target="_blank" rel="noreferrer"  href="https://expressjs.com/ru/" className="techs-link">Express.js</a></ul>
+          <ul className="techs-item"><a target="_blank" rel="noreferrer"  href="https://www.mongodb.com" className="techs-link">mongoDB</a></ul>
         </li>
       </div>
     </section>

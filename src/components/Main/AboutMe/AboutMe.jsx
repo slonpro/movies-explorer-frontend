@@ -15,8 +15,8 @@ function AboutMe() {
           </div>
           <div className="aboutme__description-social-link">
             <ul className="aboutme__description-items">
-              <li className="aboutme__description-item"><a href="https://www.facebook.com/slonpro" className="aboutme__description-link">Facebook</a></li>
-              <li className="aboutme__description-item"><a href="https://github.com/slonpro" className="aboutme__description-link">Github</a></li>
+              <li className="aboutme__description-item"><a target="_blank" rel="noreferrer"  href="https://www.facebook.com/slonpro" className="aboutme__description-link">Facebook</a></li>
+              <li className="aboutme__description-item"><a target="_blank" rel="noreferrer" href="https://github.com/slonpro" className="aboutme__description-link">Github</a></li>
             </ul>
           </div>
         </div>

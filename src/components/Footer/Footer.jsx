@@ -13,9 +13,9 @@ function Footer() {
         <div className="footer__block-down">
           <div className="footer__copyright">© 2020</div>
           <div className="footer__social-lists">
-            <a href="https://practicum.yandex.ru" className="footer__social-list">Яндекс.Практикум</a>
-            <a href="https://github.com/slonpro" className="footer__social-list">GitHub</a>
-            <a href="https://www.facebook.com/slonpro" className="footer__social-list">Facebook</a>
+            <a target="_blank" rel="noreferrer" href="https://practicum.yandex.ru" className="footer__social-list">Яндекс.Практикум</a>
+            <a target="_blank" rel="noreferrer" href="https://github.com/slonpro" className="footer__social-list">GitHub</a>
+            <a target="_blank" rel="noreferrer" href="https://www.facebook.com/slonpro" className="footer__social-list">Facebook</a>
           </div>
         </div>
       </footer>
@@ -29,9 +29,9 @@ function Footer() {
         <div className="footer__block-down">
           <div className="footer__copyright">© 2020</div>
           <div className="footer__social-lists">
-            <a href="https://practicum.yandex.ru" className="footer__social-list">Яндекс.Практикум</a>
-            <a href="https://github.com/slonpro" className="footer__social-list">GitHub</a>
-            <a href="https://www.facebook.com/slonpro" className="footer__social-list">Facebook</a>
+            <a target="_blank" rel="noreferrer" href="https://practicum.yandex.ru" className="footer__social-list">Яндекс.Практикум</a>
+            <a target="_blank" rel="noreferrer" href="https://github.com/slonpro" className="footer__social-list">GitHub</a>
+            <a target="_blank" rel="noreferrer" href="https://www.facebook.com/slonpro" className="footer__social-list">Facebook</a>
           </div>
         </div>
       </footer>
@@ -45,17 +45,17 @@ function Footer() {
         <div className="footer__block-down">
           <div className="footer__copyright">© 2020</div>
           <div className="footer__social-lists">
-            <a href="https://practicum.yandex.ru" className="footer__social-list">Яндекс.Практикум</a>
-            <a href="https://github.com/slonpro" className="footer__social-list">GitHub</a>
-            <a href="https://www.facebook.com/slonpro" className="footer__social-list">Facebook</a>
+            <a target="_blank" rel="noreferrer" href="https://practicum.yandex.ru" className="footer__social-list">Яндекс.Практикум</a>
+            <a target="_blank" rel="noreferrer" href="https://github.com/slonpro" className="footer__social-list">GitHub</a>
+            <a target="_blank" rel="noreferrer" href="https://www.facebook.com/slonpro" className="footer__social-list">Facebook</a>
           </div>
         </div>
       </footer>
     )
   } else {
-return (
-  <></>
-)
+    return (
+      <></>
+    )
   }
 }
 
