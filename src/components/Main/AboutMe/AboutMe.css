@@ -1,0 +1,128 @@
+.aboutme {
+  padding: 110px 70px 100px;
+}
+
+.aboutme__block {
+  display: flex;
+  justify-content: space-between;
+  margin: 66px 0 0;
+}
+
+.aboutme__description {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  max-width: 50%;
+}
+
+.aboutme__description-name {
+  font-weight: normal;
+  font-size: 50px;
+  line-height: 58px;
+  letter-spacing: -0.04em;
+  margin: 0;
+}
+
+.aboutme__description-workage {
+  margin: 18px 0 0;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 18px;
+  line-height: 20px;
+}
+
+.aboutme__description-text {
+  font-weight: normal;
+  font-size: 14px;
+  line-height: 22px;
+  margin: 26px 0 0;
+}
+
+.aboutme__description-social-link {
+  margin: 99px 0 0;
+}
+
+.aboutme__description-items {
+  list-style-type: none;
+  display: flex;
+  margin: 0;
+  padding: 0;
+}
+
+.aboutme__description-item {
+  margin: 0 20px;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 17px;
+}
+
+.aboutme__avatar {
+  background-image: url(../../../images/avatar.JPG);
+  width: 270px;
+  height: 327px;
+  background-size: cover;
+  border-radius: 10px;
+}
+
+.aboutme__description-item:first-child {
+  margin: 0 20px 0 0;
+}
+
+@media screen and (max-width: 1279px) {
+  .aboutme {
+    padding: 90px 50px 90px;
+  }
+
+}
+
+@media screen and (max-width: 767px) {
+  .aboutme {
+    padding: 70px 14px 70px;
+  }
+
+  .aboutme__block {
+    flex-direction: column-reverse;
+    justify-content: space-between;
+    align-items: center;
+    margin: 60px 0 0;
+  }
+
+  .aboutme__avatar {
+    margin-bottom: 40px;
+    width: 292px;
+    height: 352px;
+  }
+
+  .aboutme__description {
+    max-width: 100%;
+  }
+
+  .aboutme__description-name {
+    font-size: 30px;
+    line-height: 36px;
+  }
+
+  .aboutme__description-workage {
+    font-size: 11px;
+    line-height: 16px;
+    margin-top: 20px;
+  }
+
+  .aboutme__description-text {
+    font-size: 11px;
+    line-height: 16px;
+    margin-top: 20px;
+  }
+
+  .aboutme__description-social-link {
+    margin-top: 40px;
+  }
+
+  .aboutme__description-item:first-child {
+    margin: 0 13px 0 0;
+    }
+
+    .aboutme__description-item {
+      margin: 0 13px;
+    }
+}

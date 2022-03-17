@@ -1,0 +1,21 @@
+.register {
+  max-width: 396px;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  margin: auto;
+}
+
+.register__button {
+  margin-top: 69px;
+}
+
+@media screen and (max-width:767px) {
+  .register {
+    max-width: 260px;
+  }
+  
+  .register__button {
+    margin-top: 157px;
+  }
+}

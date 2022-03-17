@@ -1,0 +1,143 @@
+@import url(./vendor/normalize.css);
+@import url(./vendor/fonts/fonts.css);
+
+.logo {
+  display: block;
+  height: 18px;
+  width: 18px;
+  border: #3DDC84 solid 10px;
+  border-radius: 60px;
+}
+
+.profile-title {
+  font-style: normal;
+  font-weight: 500;
+  font-size: 24px;
+  line-height: 29px;
+  margin: 40px 0;
+}
+
+.title-block-h2 {
+  margin: 0 0 23px;
+  font-weight: normal;
+  font-size: 22px;
+  line-height: 27px;
+  letter-spacing: -0.04em;
+}
+
+.title-block__line {
+  border-bottom: 1px solid white;
+}
+
+.title {
+  font-weight: normal;
+  font-size: 50px;
+  line-height: 58px;
+  text-align: center;
+  letter-spacing: -0.04em;
+  margin: 0;
+}
+
+.p-text {
+  margin: 0;
+  font-weight: normal;
+  font-size: 14px;
+  line-height: 20px;
+}
+
+.error {
+  font-weight: normal;
+  font-size: 10px;
+  line-height: 12px;
+  color: #EE3465;
+  margin: 10px 0 0;
+}
+
+.profile__form-description-input {
+  font-weight: normal;
+  font-size: 10px;
+  line-height: 12px;
+  margin: 20px 0 10px;
+  color: #8B8B8B;
+}
+
+.profile__form-input {
+  background: #2F2F2F;
+  border-radius: 8px;
+  border: none;
+  min-width: 366px;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 13px;
+  line-height: 16px;
+  color: white;
+  padding: 15px;
+}
+
+.profile__form-button {
+  background: #4285F4;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 17px;
+  color: white;
+  border-radius: 3px;
+  width: 100%;
+  border: none;
+  margin-top: 179px;
+  min-height: 45px;
+}
+
+.profile__reg {
+  font-weight: normal;
+  font-size: 14px;
+  line-height: 17px;
+  text-align: center;
+  margin: 14px 0 0;
+  color: #8B8B8B;
+}
+
+.profile__reg-link {
+  text-decoration: none;
+  color: #4285F4;
+}
+
+@media screen and (max-width:767px) {
+  .title-block-h2 {
+    font-size: 18px;
+    line-height: 22px;
+  }
+
+  .title {
+    font-size: 30px;
+    line-height: 36px;
+  }
+
+  .profile__block {
+    max-width: 260px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .profile__form-input {
+    min-width: 230px;
+  }
+
+  .profile-title {
+    text-align: center;
+  }
+
+  .logo {
+    text-align: center;
+  }
+
+  .profile__form-button {
+    margin-top: 267px;
+  }
+
+  .profile__reg {
+    font-size: 12px;
+    line-height: 15px;
+  }
+}
