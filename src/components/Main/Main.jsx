@@ -3,14 +3,16 @@ import Promo from "./Promo/Promo";
 import Techs from "./Techs/Techs";
 import AboutMe from "./AboutMe/AboutMe";
 import Portfolio from "./Portfolio/Portfolio";
-function Main() {
+
+function Main(props) {
+
   return (
     <main className="main">
       <Promo />
       <AboutProject />
       <Techs />
-      <AboutMe/>
-      <Portfolio/>
+      <AboutMe />
+      <Portfolio />
     </main>
   );
 }
