@@ -88,6 +88,10 @@
   min-height: 45px;
 }
 
+.profile__form-button:disabled {
+  background: grey;
+}
+
 .profile__reg {
   font-weight: normal;
   font-size: 14px;

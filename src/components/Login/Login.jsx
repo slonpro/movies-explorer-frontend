@@ -1,25 +1,18 @@
 import './Login.css'
 import { Link, useHistory } from 'react-router-dom';
-import { useState } from 'react';
 import auth from '../../utils/Auth';
+import { useFormWithValidation } from '../Validator/Validator.js'
 
 function Login(props) {
-  const [email, setEmail] = useState('')
-  const [password, setPassword] = useState('')
   const history = useHistory()
-
-  function handleChange(e, setter) {
-    setter(e.target.value);
-  }
+  const formValid = useFormWithValidation()
 
   function handleSubmit(e) {
     e.preventDefault();
-    auth.authorize({password, email})
+    auth.authorize(formValid.values)
       .then((data) => {
         if (data.token) {
           localStorage.setItem('token', data.token);
-          setPassword('')
-          setEmail('')
           props.setLogin(true)
           history.push('/movies')
         }
@@ -29,7 +22,6 @@ function Login(props) {
       })
   }
 
-
   return (
     <section className="login">
       <div className="profile__block">
@@ -37,10 +29,16 @@ function Login(props) {
         <h3 className="profile-title">Рады видеть!</h3>
         <form onSubmit={handleSubmit} className="profile__form">
           <p className="profile__form-description-input">E-mail</p>
-          <input value={email} onChange={(e) => handleChange(e, setEmail)} type="email" className="profile__form-input" />
+          <input name='email' value={formValid.values.email} onChange={(e) => formValid.handleChange(e)} type="email" className="profile__form-input" required />
+          {formValid.errors.email
+            ? <p className="profile__form-input-password error">{formValid.errors.email}</p>
+            : ''}
           <p className="profile__form-description-input">Пароль</p>
-          <input value={password} onChange={(e) => handleChange(e, setPassword)} type="password" className="profile__form-input" />
-          <button className="profile__form-button">Войти</button>
+          <input value={formValid.values.password} name='password' onChange={(e) => formValid.handleChange(e)} type="password" className="profile__form-input" required />
+          {formValid.errors.password
+            ? <p className="profile__form-input-password error">{formValid.errors.password}</p>
+            : ''}
+          <button className="profile__form-button" disabled={formValid.isValid ? '' : 'disabled'}>Войти</button>
         </form>
         <p className="profile__reg">Ещё не зарегистрированы? <Link to="/signup" className="profile__reg-link">Регистрация</Link></p>
       </div>

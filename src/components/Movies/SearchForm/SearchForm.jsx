@@ -1,30 +1,27 @@
 import './SearchForm.css'
-import { useState } from 'react';
-
+import React from 'react';
 
 function SearchForm(props) {
-  const [key, setKey] = useState('')
+
 
   function handleChange(e, setter) {
     setter(e.target.value);
   }
 
-
   function handleSubmit(e) {
     e.preventDefault();
-    props.searchMovies(key)
-    document.getElementById('checkbox2').checked = false;
+    props.searchMovies(props.keyWord, props.movies, props.setFiltredMovies)
   }
 
   function handleSubmitCheckbox(e) {
-    props.shortMovies(key)
+    props.shortMovies(props.setFiltredMovies, props.filtredMovies, props.movies, props.keyWord)
   }
 
   return (
     <section className="search-form">
       <div className="search-form__block-search">
         <form onSubmit={handleSubmit} className="search-form__form">
-          <input placeholder='Поиск' value={key} onChange={(e) => handleChange(e, setKey)} type="text" className="search-form__input" required />
+          <input placeholder='Поиск' value={props.keyWord} onChange={(e) => handleChange(e, props.setKeyWord)} type="text" className="search-form__input" required />
           <button className="search-form__button">Поиск</button>
         </form>
       </div>
