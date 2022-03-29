@@ -82,7 +82,7 @@ class MainApi {
 }
 
 const apiMain = new MainApi({
-  baseUrl: 'http://localhost:3000',
+  baseUrl: 'https://api.movies-pro.nomoredomains.work',
 })
 
 export default apiMain

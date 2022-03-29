@@ -56,7 +56,7 @@ class Auth {
 }
 
 const auth = new Auth({
-  baseUrl: 'http://localhost:3000',
+  baseUrl: 'https://api.movies-pro.nomoredomains.work',
 })
 
 export default auth
