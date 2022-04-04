@@ -7,22 +7,36 @@ import Preloader from "../Preloader/Preloader";
 
 function SavedMovies(props) {
   const [keySaveWord, setKeySaveWord] = React.useState('')
-  const [filtredSavedMovies, setFiltredSavedMovies] = React.useState([])
+  const [filtredAndSortMovies, setFiltredAndSortMovies] = React.useState([])
+  const [checked, setChecked] = React.useState(false)
+  const [movies, setMovies] = React.useState([])
+
 
   React.useEffect(() => {
-    setFiltredSavedMovies(props.movies)
-  }, [props.movies])
+    setFiltredAndSortMovies(props.savedMovies)
+  }, [props.savedMovies])
+
+
+  const searchMovies = () => {
+    const filtredMovies = props.savedMovies.filter(movie => movie.nameRU.toLowerCase().includes(keySaveWord.toLowerCase()))
+    setMovies(filtredMovies)
+    if (checked) {
+      setFiltredAndSortMovies(filtredMovies.filter((item) => item.duration <= 40))
+    } else {
+      return setFiltredAndSortMovies(filtredMovies)
+    }
+  }
 
   return (
     <main className="savedmovies">
-      <SearchForm shortMovies={props.shortMovies} keyWord={keySaveWord} filtredMovies={filtredSavedMovies} setFiltredMovies={setFiltredSavedMovies} setKeyWord={setKeySaveWord} searchMovies={props.searchMovies} movies={props.movies}/>
-  
+      <SearchForm keyWord={keySaveWord} searchMovies={searchMovies} checked={checked} setChecked={setChecked} shortMovies={props.shortMovies} filtredAndSortMovies={filtredAndSortMovies} setFiltredAndSortMovies={setFiltredAndSortMovies} setKeyWord={setKeySaveWord} movies={movies} />
+
       <section className="movies-list savedmovies__list">
         {props.loader ? <Preloader /> : <></>}
-        {filtredSavedMovies.length === 0 ? <p className="movies-lists__not-found">Ничего не найдено</p> : <></>}
+        {filtredAndSortMovies.length === 0 ? <p className="movies-lists__not-found">Ничего не найдено</p> : <></>}
 
         <div className="movies-lists">
-          {filtredSavedMovies.map((item) => <MoviesCard deleteSavedMovie={props.deleteSavedMovie} savedMovies={props.savedMovies} toggleSaveMovies={props.toggleSaveMovies} changeButtonOnDelete={true} item={item} key={item._id} img={item.image} name={item.nameRU} duration={item.duration} />)}
+          {filtredAndSortMovies.map((item) => <MoviesCard deleteSavedMovie={props.deleteSavedMovie} savedMovies={props.savedMovies} toggleSaveMovies={props.toggleSaveMovies} changeButtonOnDelete={true} item={item} key={item._id} img={item.image} name={item.nameRU} duration={item.duration} />)}
         </div>
       </section>
     </main>

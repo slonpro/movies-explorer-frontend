@@ -1,30 +1,34 @@
 import './Profile.css'
-import { Link } from 'react-router-dom';
+/* import { useHistory } from 'react-router-dom'; */
 import React from 'react';
 import { CurrentUserContext } from '../../contexts/AppContexts';
 import Auth from '../../utils/Auth'
 import apiMain from '../../utils/MainApi';
 import { useFormWithValidation } from '../Validator/Validator.js'
 
-function Profile() {
+function Profile(props) {
   const formValidation = useFormWithValidation()
   const currentUser = React.useContext(CurrentUserContext);
   const [disabledButton, setDisableButton] = React.useState(false)
+/*   const history = useHistory() */
 
   const signout = () => {
     Auth.logout()
-      .then((res) => localStorage.removeItem('token'))
+      .then((res) => {
+        props.setLoginIn(false)
+        localStorage.clear()
+      })
       .catch((error) => console.log(error))
   }
-  const handleSubmit = () => {
+  const handleSubmit = (e) => {
+    e.preventDefault();
     apiMain.setUserInfo(formValidation.values)
-      .then((res) => console.log(res))
+      .then((res) => props.setCurrentUser(res))
       .catch((error) => console.log(error))
   }
-
   React.useEffect(() => {
     formValidation.setValues({ name: currentUser.name, email: currentUser.email })
-  }, [currentUser.name, currentUser.email])
+  }, [currentUser])
 
   React.useEffect(() => {
     if (formValidation.values.name === currentUser.name && formValidation.values.email === currentUser.email) {
@@ -33,8 +37,6 @@ function Profile() {
       setDisableButton(true)
     }
   }, [formValidation.values, currentUser.name, currentUser.email])
-
-  console.log(formValidation)
 
   return (
     <section className="profile">
@@ -56,7 +58,7 @@ function Profile() {
           : ''}
         <button className="profile__link" disabled={formValidation.isValid && disabledButton ? '' : 'disabled'}>Редактировать</button>
       </form>
-      <Link to="/signin" onClick={signout} className="profile__link profile__link_exit">Выйти из аккаунта</Link>
+      <button onClick={signout} className="profile__link profile__link_exit">Выйти из аккаунта</button>
     </section>
   )
 }

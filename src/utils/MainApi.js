@@ -82,7 +82,9 @@ class MainApi {
 }
 
 const apiMain = new MainApi({
-  baseUrl: 'https://api.movies-pro.nomoredomains.work',
+  baseUrl: process.env.NODE_ENV === "production"
+  ? "https://api.movies-pro.nomoredomains.work"
+  : "http://localhost:3000",
 })
 
 export default apiMain

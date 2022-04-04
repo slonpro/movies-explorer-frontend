@@ -10,11 +10,11 @@ function SearchForm(props) {
 
   function handleSubmit(e) {
     e.preventDefault();
-    props.searchMovies(props.keyWord, props.movies, props.setFiltredMovies)
+    props.searchMovies(props.keyWord, props.setFiltredAndSortMovies, props.checked)
   }
 
   function handleSubmitCheckbox(e) {
-    props.shortMovies(props.setFiltredMovies, props.filtredMovies, props.movies, props.keyWord)
+    props.shortMovies(props.setFiltredAndSortMovies, props.setChecked, props.checked, props.movies)
   }
 
   return (
@@ -26,7 +26,7 @@ function SearchForm(props) {
         </form>
       </div>
       <div className="search-form__filters">
-        <input onClick={handleSubmitCheckbox} type="checkbox" className="checkbox" id="checkbox2" />
+        <input onChange={handleSubmitCheckbox} type="checkbox" className="checkbox" id="checkbox2" checked={props.checked}/>
         <label htmlFor="checkbox2" className="ios-switch">Короткометражки</label>
       </div>
     </section>

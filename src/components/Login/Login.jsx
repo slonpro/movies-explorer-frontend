@@ -12,7 +12,6 @@ function Login(props) {
     auth.authorize(formValid.values)
       .then((data) => {
         if (data.token) {
-          localStorage.setItem('token', data.token);
           props.setLogin(true)
           history.push('/movies')
         }

@@ -56,7 +56,9 @@ class Auth {
 }
 
 const auth = new Auth({
-  baseUrl: 'https://api.movies-pro.nomoredomains.work',
+  baseUrl: process.env.NODE_ENV === "production"
+  ? "https://api.movies-pro.nomoredomains.work"
+  : "http://localhost:3000",
 })
 
 export default auth

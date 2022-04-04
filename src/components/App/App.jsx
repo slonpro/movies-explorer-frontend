@@ -18,36 +18,36 @@ import mainApi from '../../utils/MainApi'
 
 function App() {
   const history = useHistory()
-  const [loginIn, setLoginIn] = React.useState(false)
+  const [loginIn, setLoginIn] = React.useState(null)
   const [currentUser, setCurrentUser] = React.useState({})
   const [loader, setLoader] = React.useState(false)
   const [savedMovies, setSavedMovies] = React.useState([])
-  const [searchWas, setSearchWas] = React.useState(false)
-  const [checked, setChecked] = React.useState(false)
-  const [movies, setMovies] = React.useState([])
+  const [movies, setMovies] = React.useState(JSON.parse(localStorage.getItem('movies')) ? JSON.parse(localStorage.getItem('movies')) : [])
 
 
 
   const handleCheckToken = useCallback(() => {
-    if (localStorage.getItem('token')) {
-      const token = localStorage.getItem('token');
-      auth.checkToken(token)
-        .then((res) => {
-          setLoginIn(true)
-          history.push('/')
-          setCurrentUser(res)
-        })
-        .catch(err => console.log(`Ошибка проверка токена: ${err}`))
-    }
-  }, [history])
+    auth.checkToken()
+      .then((res) => {
+        setLoginIn(true)
+        setCurrentUser(res)
+      })
+      .catch(err => {
+        setLoginIn(false)
+        console.log(`Ошибка проверка токена: ${err}`)
+      })
+
+  }, [])
 
   React.useEffect(() => {
     getSavedMovies()
-    MoviesApi.getMovies()
-      .then((movies) => setMovies(movies))
-      .catch((error) => console.log(error))
+
     handleCheckToken()
   }, [loginIn, handleCheckToken])
+
+
+
+
 
   const getSavedMovies = () => {
     mainApi.getSaveMovies()
@@ -83,24 +83,34 @@ function App() {
     setLoginIn(status)
   }
 
-  const searchMovies = (keyWord, movies, setFiltredMovies) => {
-    setSearchWas(true)
+  const searchMovies = (keyWord, setFiltredAndSortMovies, checked) => {
     setLoader(true)
-    if (checked) {
-      setFiltredMovies(movies.filter(movie => movie.nameRU.toLowerCase().includes(keyWord.toLowerCase())).filter((item) => item.duration <= 40))
-    } else {
-      setFiltredMovies(movies.filter(movie => movie.nameRU.toLowerCase().includes(keyWord.toLowerCase())))
-    }
-    setLoader(false)
+    MoviesApi.getMovies()
+      .then((resultMovies) => {
+        const filtredMovies = resultMovies.filter(movie => movie.nameRU.toLowerCase().includes(keyWord.toLowerCase()))
+        setMovies(filtredMovies)
+        localStorage.setItem('movies', JSON.stringify(filtredMovies))
+        localStorage.setItem('keyWord', keyWord)
+        if (checked) {
+          setFiltredAndSortMovies(filtredMovies.filter((item) => item.duration <= 40))
+        } else {
+
+          return setFiltredAndSortMovies(filtredMovies)
+        }
+      })
+      .catch((error) => console.log(error))
+      .finally(() => {
+        setLoader(false)
+      })
   }
 
-  const shortMovies = (setFiltredMovies, filtredMovies, movies, keyWord) => {
+  const shortMovies = (setFiltredAndSortMovies, setChecked, checked, movies) => {
     if (checked) {
       setChecked(false)
-      setFiltredMovies(movies.filter(movie => movie.nameRU.toLowerCase().includes(keyWord.toLowerCase())))
+      return setFiltredAndSortMovies(movies)
     } else {
       setChecked(true)
-      setFiltredMovies(filtredMovies.filter((item) => item.duration <= 40))
+      setFiltredAndSortMovies(movies.filter((item) => item.duration <= 40))
     }
   }
 
@@ -143,10 +153,9 @@ function App() {
                 component={Movies}
                 searchMovies={searchMovies}
                 loader={loader}
-                searchWas={searchWas}
-                setSearchWas={setSearchWas}
                 shortMovies={shortMovies}
                 movies={movies}
+                setMovies={setMovies}
                 savedMovies={savedMovies}
                 toggleSaveMovies={toggleSaveMovies}
               />
@@ -154,15 +163,15 @@ function App() {
                 component={SavedMovies}
                 searchMovies={searchMovies}
                 loader={loader}
-                searchWas={searchWas}
                 shortMovies={shortMovies}
-                movies={savedMovies}
                 savedMovies={savedMovies}
                 toggleSaveMovies={toggleSaveMovies}
                 deleteSavedMovie={deleteSavedMovie}
               />
               <ProtectedRoute exact path="/profile"
                 component={Profile}
+                setLoginIn={setLoginIn}
+                setCurrentUser={setCurrentUser}
               />
               <Route exact path="/">
                 <Main />
