@@ -1,7 +1,7 @@
 import Footer from '../Footer/Footer';
 import Header from '../Header/Header';
 import Main from '../Main/Main';
-import { Route, Switch, useHistory } from 'react-router-dom';
+import { Redirect, Route, Switch, useHistory } from 'react-router-dom';
 import './App.css';
 import Movies from '../Movies/Movies';
 import Login from '../Login/Login';
@@ -45,16 +45,11 @@ function App() {
     handleCheckToken()
   }, [loginIn, handleCheckToken])
 
-
-
-
-
   const getSavedMovies = () => {
     mainApi.getSaveMovies()
       .then((res) => setSavedMovies(res))
       .catch((error) => console.log(error))
   }
-
 
   function handleSubmitRegister({ email, password, name }) {
     auth.register({ email, password, name })
@@ -114,7 +109,6 @@ function App() {
     }
   }
 
-
   const toggleSaveMovies = (item, isLiked, setIsLiked) => {
     if (isLiked) {
       const idDelete = savedMovies.find((i) => i.movieId === item.id)
@@ -139,8 +133,6 @@ function App() {
       .then((res) => getSavedMovies())
       .catch((error) => console.log(error))
   }
-
-
 
   return (
     <div className="app">
@@ -177,10 +169,10 @@ function App() {
                 <Main />
               </Route>
               <Route path="/signin">
-                <Login setLogin={handleSetLogin} />
+                {loginIn ? <Redirect to="/" /> : <Login setLogin={handleSetLogin} />}
               </Route>
               <Route path="/signup">
-                <Register isRegistration={handleSubmitRegister} />
+                {loginIn ? <Redirect to="/" /> : <Register isRegistration={handleSubmitRegister} />}
               </Route>
               <Route path="*">
                 <PageNotFound />

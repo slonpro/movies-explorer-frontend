@@ -12,12 +12,10 @@ function Movies(props) {
   const isMobile = useMediaQuery({ query: `(min-width: 320px), (max-width: 480px)` });
   const counterMoviesForResize = isDesktop ? 12 : isTable ? 8 : isMobile ? 5 : 5
   const counterMoviesAdd = isDesktop ? 3 : isTable ? 2 : 2
-
   const [counter, setCounter] = React.useState(0)
   const [keyWord, setKeyWord] = React.useState('')
   const [filtredAndSortMovies, setFiltredAndSortMovies] = React.useState([])
   const [checked, setChecked] = React.useState(localStorage.getItem('checked') ? localStorage.getItem('checked') !== 'false' ? true : false : false)
-  
   
   const counterPlus = () => {
     setCounter(prevCounter => prevCounter + counterMoviesAdd)
@@ -46,12 +44,12 @@ function Movies(props) {
       <section className="movies-list">
 
         {props.loader ? <Preloader /> : <></>}
-        {filtredAndSortMovies.length === 0 ? <p className="movies-lists__not-found">Ничего не найдено</p> : <></>}
+        {filtredAndSortMovies.length === 0 && localStorage.getItem('movies') ? <p className="movies-lists__not-found">Ничего не найдено</p> : <></>}
         <div className="movies-lists">
           {filtredAndSortMovies.slice(0, counterMoviesForResize + counter).map((item) => <MoviesCard savedMovies={props.savedMovies} toggleSaveMovies={props.toggleSaveMovies} item={item} key={item.id} img={`https://api.nomoreparties.co/${item.image.url}`} name={item.nameRU} duration={item.duration} />)}
         </div>
         {
-          filtredAndSortMovies.length === 0 || filtredAndSortMovies.length < counterMoviesForResize + counter ? <></> :
+          filtredAndSortMovies.length === 0 || filtredAndSortMovies.length <= counterMoviesForResize + counter ? <></> :
             <div className="movies-list__more">
               <button onClick={counterPlus} className="movies-list__more-button">Еще</button>
             </div>

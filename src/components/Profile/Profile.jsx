@@ -10,7 +10,9 @@ function Profile(props) {
   const formValidation = useFormWithValidation()
   const currentUser = React.useContext(CurrentUserContext);
   const [disabledButton, setDisableButton] = React.useState(false)
-/*   const history = useHistory() */
+  const [errorSave, setErrorSave] = React.useState(false)
+  const [errorMessage, setErrorMessage] = React.useState('')
+  /*   const history = useHistory() */
 
   const signout = () => {
     Auth.logout()
@@ -23,8 +25,16 @@ function Profile(props) {
   const handleSubmit = (e) => {
     e.preventDefault();
     apiMain.setUserInfo(formValidation.values)
-      .then((res) => props.setCurrentUser(res))
-      .catch((error) => console.log(error))
+      .then((res) => {
+        setErrorSave(true)
+        setErrorMessage('Данные успешно сохранены')
+        props.setCurrentUser(res)
+      })
+      .catch((error) => {
+        setErrorSave(true)
+        setErrorMessage(error)
+        console.log(error)
+      })
   }
   React.useEffect(() => {
     formValidation.setValues({ name: currentUser.name, email: currentUser.email })
@@ -35,6 +45,7 @@ function Profile(props) {
       setDisableButton(false)
     } else {
       setDisableButton(true)
+      setErrorSave(false)
     }
   }, [formValidation.values, currentUser.name, currentUser.email])
 
@@ -57,6 +68,9 @@ function Profile(props) {
           ? <p className="profile__form-input-password error">{formValidation.errors.email}</p>
           : ''}
         <button className="profile__link" disabled={formValidation.isValid && disabledButton ? '' : 'disabled'}>Редактировать</button>
+        {errorSave
+          ? <p className="profile__form-input-password save">{errorMessage}</p>
+          : ''}
       </form>
       <button onClick={signout} className="profile__link profile__link_exit">Выйти из аккаунта</button>
     </section>
