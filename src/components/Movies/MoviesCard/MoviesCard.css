@@ -1,0 +1,28 @@
+.savedmovies__list {
+  padding-bottom: 325px;
+}
+
+.savedmovies__delete {
+background: url(../../../images/delete.svg) center no-repeat;
+width: 7px;
+height: 7px;
+display: none;
+border: none;
+cursor: pointer;
+}
+
+.savedmovies__item:hover {
+  cursor: pointer;
+}
+
+.savedmovies__item:hover .savedmovies__delete{
+  display: block;
+}
+
+@media screen and (max-width: 1279px) {
+  .savedmovies__list {
+    padding-bottom: 250px;
+  
+  }
+  
+}
